@@ -15,13 +15,12 @@ HashTable.prototype.hashKey = function(key){
 
 HashTable.prototype.set = function(key, value){
   let temp = this.buckets[this.hashKey(key)]
-  console.log(temp);
   if(this.buckets[this.hashKey(key)]){
+    let temp =this.buckets[this.hashKey(key)]
     temp.append(new Node(value))
     return temp
   }
-  console.log(value);
-  this.buckets[this.hashKey(key)] = new DLL().append(value)
+  this.buckets[this.hashKey(key)] = new DLL(new Node(value))
 
 }
 
@@ -37,10 +36,8 @@ HashTable.prototype.remove = function(key){
 let newHashTable = new HashTable();
 newHashTable.set('a', 'a')
 newHashTable.set('a', 'b')
-// newHashTable.set('a')
+newHashTable.set('a', 'c')
 // newHashTable.set('c')
 // newHashTable.set('r')
 console.log(newHashTable.buckets[1]);
-
-
-console.log(newHashTable);
+console.log(newHashTable.buckets);

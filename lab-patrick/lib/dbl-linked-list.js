@@ -2,9 +2,9 @@
 
 const Node = require('./node')
 
-const DLL = module.exports = function() {
-  this.head=null;
-  this.tail = null
+const DLL = module.exports = function(value) {
+  this.head= value || null;
+  this.tail = value || null
   this.length = 0
 }
 
